@@ -1,0 +1,202 @@
+@font-face {
+  font-family: "Gotham";
+  src: url("../assets/Gotham\ Medium.otf");
+}
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  font-family: "Gotham";
+  height: 100vh;
+  background-color: #222;
+}
+
+.mobil {
+  border-radius: 50px;
+  border: 8px solid black;
+  background: white;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  touch-action: pan-y;
+  color: #fff;
+  width: 360px;
+  height: 680px;
+}
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.notch {
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  z-index: 1;
+  transform: translateX(-50%);
+  width: 135px;
+  height: 30px;
+  background: black;
+  border-radius: 15px;
+}
+.swipe {
+  width: 120px;
+  height: 6px;
+  background: #89898981;
+  position: absolute;
+  bottom: 7px;
+  border-radius: 5px;
+  right: 50%;
+  transform: translateX(50%);
+}
+.cont {
+  position: absolute;
+  top: 50%;
+  left: 30px;
+}
+.cont > button {
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid rgb(150, 0, 170);
+  color: white;
+  text-transform: uppercase;
+  border-radius: 20px;
+}
+.cont > button:hover {
+  background: rgb(150, 0, 170);
+}
+.container {
+  width: 100%;
+  height: 100%;
+  padding-top: 46px;
+  background: rgb(232, 232, 232);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+.w {
+  width: 100%;
+  height: 8%;
+}
+.e {
+  width: 100%;
+  height: 100%;
+  justify-content: space-between;
+  display: flex;
+  color: rgb(67, 176, 42);
+  align-items: center;
+  padding: 0 10px;
+}
+.logo {
+  width: 58%;
+  height: 44%;
+}
+.logo > img {
+  width: 100%;
+  height: 100%;
+}
+
+.cont-burger {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.burger {
+  display: flex;
+  justify-content: center;
+}
+.text > ul {
+  list-style: none;
+}
+.container-sw {
+  width: 100%;
+  height: 75%;
+  background: red;
+}
+
+.slider {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.track {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, 4%, 20px);
+  padding: 0 clamp(16px, 6%, 40px);
+  transition: transform 0.35s ease;
+}
+
+.slide {
+  flex: 0 0 auto;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background: white;
+  border-radius: 30px;
+}
+
+.dots-and-button {
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px;
+}
+.dots {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  gap: 10px;
+  align-items: center;
+}
+
+.dot {
+  width: 7px;
+  height: 7px;
+  background: rgba(67, 176, 42, 0.728);
+  border-radius: 50%;
+}
+.dot.near {
+  width: 10px;
+  height: 10px;
+  background: rgba(60, 158, 38, 0.884);
+}
+.dot.active {
+  width: 13px;
+  height: 13px;
+  background: rgb(57, 201, 25);
+}
+.learn {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+}
+.learn > button {
+  width: 55%;
+
+  background: rgb(57, 201, 25);
+  color: white;
+  border: 0;
+  border-radius: 5px;
+}
+
+@media (max-width: 370px) {
+  .mobil {
+    width: 100%;
+    height: 100%;
+  }
+}
