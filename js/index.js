@@ -10,23 +10,23 @@ console.log(video);
 
 const liElem = [
   {
-    id: "0",
+    id: 0,
     text: "Why Delta Dental",
   },
   {
-    id: "1",
+    id: 1,
     text: "Plans for your employees",
   },
   {
-    id: "2",
+    id: 2,
     text: "Small Business",
   },
   {
-    id: "3",
+    id: 3,
     text: "Large Groups",
   },
   {
-    id: "4",
+    id: 4,
     text: "Why Add DeltaVision®?",
   },
 ];
@@ -60,14 +60,6 @@ function updateText() {
     }
   });
 }
-
-liElem.forEach((e) => {
-  let span = document.createElement("span");
-  span.addEventListener("click", () => moveTo(index + e.id));
-  span.textContent = e.text;
-  span.classList.add("rew");
-  links.appendChild(span);
-});
 
 createDots();
 moveTo(0, false);
@@ -174,12 +166,22 @@ function updateDots() {
 }
 
 function onBurger() {
-  if (burgerFlag === false) {
+  if (burgerFlag === true) {
     elem.classList.add("hidden");
-    burgerFlag = true;
-  } else {
     burgerFlag = false;
+  } else {
+    burgerFlag = true;
     elem.classList.remove("hidden");
   }
 }
-// setInterval(next, 2500);
+liElem.forEach((e) => {
+  let span = document.createElement("span");
+  span.addEventListener("click", () => {
+    moveTo(index + e.id);
+    updateDots();
+    updateText();
+  });
+  span.textContent = e.text;
+  span.classList.add("rew");
+  links.appendChild(span);
+});
