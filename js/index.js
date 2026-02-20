@@ -5,6 +5,7 @@ const haederText = document.querySelector(".texts");
 const elem = document.querySelector(".modal");
 const links = document.querySelector(".qw");
 const video = document.querySelectorAll("video");
+const volumes = document.querySelectorAll(".vol");
 console.log(video);
 
 const liElem = [
@@ -118,6 +119,21 @@ swiper.addEventListener("pointerleave", () => {
   isDragging = false;
 });
 
+function forVolume(content, volume) {
+  if (!content || !volume) return;
+
+  const currentVolume = content.muted;
+
+  if (currentVolume) {
+    content.muted = false;
+    volume.innerHTML = `<i class="bi bi-volume-up-fill"></i>`;
+  } else {
+    content.muted = true;
+    volume.innerHTML = `<i class="bi bi-volume-mute-fill"></i>`;
+  }
+}
+volumes[0].addEventListener("click", () => forVolume(video[0], volumes[0]));
+volumes[1].addEventListener("click", () => forVolume(video[1], volumes[1]));
 function moveTo(i, smooth = true) {
   if (i >= slides.length) i = 0;
   if (i < 0) i = slides.length - 1;
@@ -128,8 +144,8 @@ function moveTo(i, smooth = true) {
   index = i;
   updateText();
   updateDots();
-  if (index === 0) video[0].play();
-  else if (index === 1) video[1].play();
+  if (index === 0) (video[0].play(), video[1].pause());
+  else if (index === 1) (video[1].play(), video[0].pause());
   else video.forEach((e) => e.pause());
 }
 
