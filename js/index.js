@@ -2,6 +2,11 @@ const swiper = document.querySelector(".swiper");
 const dotsContainer = document.querySelector(".dots");
 let slides = document.querySelectorAll(".slide");
 const haederText = document.querySelector(".texts");
+const elem = document.querySelector(".modal");
+const links = document.querySelector(".qw");
+const video = document.querySelectorAll("video");
+console.log(video);
+
 const liElem = [
   {
     id: "0",
@@ -55,10 +60,20 @@ function updateText() {
   });
 }
 
+liElem.forEach((e) => {
+  let span = document.createElement("span");
+  span.addEventListener("click", () => moveTo(index + e.id));
+  span.textContent = e.text;
+  span.classList.add("rew");
+  links.appendChild(span);
+});
+
 createDots();
 moveTo(0, false);
 
 let startX = 0;
+let burgerFlag = false;
+
 let currentX = 0;
 let isDragging = false;
 let isSwipe = false;
@@ -113,6 +128,9 @@ function moveTo(i, smooth = true) {
   index = i;
   updateText();
   updateDots();
+  if (index === 0) video[0].play();
+  else if (index === 1) video[1].play();
+  else video.forEach((e) => e.pause());
 }
 
 function next() {
@@ -139,4 +157,13 @@ function updateDots() {
   dots[index].classList.add("active");
 }
 
+function onBurger() {
+  if (burgerFlag === false) {
+    elem.classList.add("hidden");
+    burgerFlag = true;
+  } else {
+    burgerFlag = false;
+    elem.classList.remove("hidden");
+  }
+}
 // setInterval(next, 2500);

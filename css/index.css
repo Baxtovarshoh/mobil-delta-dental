@@ -186,9 +186,12 @@ body {
   display: flex;
   justify-content: end;
 }
-.learn > button {
-  width: 55%;
-
+.learn > a {
+  width: 70%;
+  text-decoration: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background: rgb(57, 201, 25);
   color: white;
   border: 0;
@@ -276,7 +279,7 @@ body {
   width: 100%;
   height: 50%;
   display: flex;
-  color: white ;
+  color: white;
   justify-content: center;
   align-items: center;
 }
@@ -360,7 +363,7 @@ body {
 .t-small > a {
   color: rgb(64, 188, 74);
 }
-.bg-rrr{
+.bg-rrr {
   width: 100%;
   height: 100%;
 }
@@ -368,6 +371,68 @@ body {
   width: 100%;
   height: 100%;
   transform: scale(1.05);
+}
+.modal {
+  background: rgb(232, 232, 232);
+  width: 50%;
+  position: absolute;
+  z-index: 10;
+  height: 100%;
+  padding-top: 40px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.895);
+}
+.logotype {
+  width: 100%;
+  height: 3%;
+  padding: 0 10px;
+  color: rgb(57, 201, 25);
+  display: flex;
+  justify-content: space-between;
+}
+.cl {
+  font-size: 20px;
+}
+.imgs {
+  width: 70%;
+  height: 100%;
+}
+.imgs > img {
+  width: 100%;
+  height: 100%;
+}
+.rew {
+  color: rgb(57, 201, 25);
+}
+.links {
+  width: 100%;
+  height: 80%;
+  margin-top: 20px;
+  border-top: 1px solid rgb(57, 201, 25);
+}
+.qw {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+  flex-direction: column;
+  font-size: 14px;
+}
+.rew {
+  border: 1px solid rgb(57, 201, 25);
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.895);
+  transform: scale(0.9);
+  &:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.895) inset;
+  }
+}
+.atr-list:nth-last-child(1){
+  transform: scale(0.5);
+}
+.hidden{
+  display: none;
 }
 @media (max-width: 375px) {
   .mobil {
@@ -379,5 +444,32 @@ body {
   }
   .swipe {
     display: none;
+  }
+  .container {
+    padding-top: 20px;
+  }
+  .mobil {
+    border: 0;
+    border-radius: 0;
+  }
+}
+
+@media (max-width: 400px) {
+  .mobil {
+    width: 100%;
+    height: 100dvh;
+  }
+  .notch {
+    display: none;
+  }
+  .swipe {
+    display: none;
+  }
+  .container {
+    padding-top: 20px;
+  }
+  .mobil {
+    border: 0;
+    border-radius: 0;
   }
 }

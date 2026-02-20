@@ -15,11 +15,22 @@
     <div class="mobil">
       <div class="notch"></div>
       <div class="screen">
+        <div class="modal hidden">
+          <div class="logotype">
+            <div class="imgs">
+              <img src="assets/DD Logo Unbounded Green Screen.png" alt="" />
+            </div>
+            <div class="cl" onclick="onBurger()"><i class="bi bi-x"></i></div>
+          </div>
+          <div class="qw"></div>
+        </div>
         <div class="container">
           <div class="w">
             <header class="e">
               <div class="cont-burger">
-                <div class="burger"><i class="bi bi-list"></i></div>
+                <div onclick="onBurger()" class="burger">
+                  <i class="bi bi-list"></i>
+                </div>
                 <div class="text">
                   <ul class="texts"></ul>
                 </div>
@@ -117,7 +128,7 @@
           <div class="dots-and-button">
             <div class="dots"></div>
             <div class="learn">
-              <button>Learn More</button>
+              <a href="https://deltadentalnc.com/learnmore" target="_blank">Learn More</a>
             </div>
           </div>
         </div>
