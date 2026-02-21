@@ -6,7 +6,12 @@ const elem = document.querySelector(".modal");
 const links = document.querySelector(".qw");
 const video = document.querySelectorAll("video");
 const volumes = document.querySelectorAll(".vol");
-console.log(video);
+const baner = document.querySelector(".baner");
+const content = document.querySelector(".container");
+const close = document.querySelector(".close");
+const roller = document.querySelector(".spa");
+const thumb = document.querySelector(".rol");
+const end = document.querySelector(".endpoint");
 
 const liElem = [
   {
@@ -184,4 +189,80 @@ liElem.forEach((e) => {
   span.textContent = e.text;
   span.classList.add("rew");
   links.appendChild(span);
+});
+
+let startXs = 0;
+let currentXs = 0;
+let dragging = false;
+
+thumb.addEventListener("pointerdown", (e) => {
+  startXs = e.clientX;
+  dragging = true;
+  thumb.style.transition = "none";
+});
+
+window.addEventListener("pointermove", (e) => {
+  if (!dragging) return;
+
+  currentXs = e.clientX;
+  let diff = currentXs - startXs;
+
+  if (diff < 0) diff = 0;
+
+  const max = roller.offsetWidth - thumb.offsetWidth - 5;
+
+  if (diff > max) diff = max;
+
+  thumb.style.transform = `translateX(${diff}px)`;
+});
+
+window.addEventListener("pointerup", () => {
+  if (!dragging) return;
+  dragging = false;
+
+  let diff = currentXs - startXs;
+  const max = roller.offsetWidth - thumb.offsetWidth - 5;
+
+  thumb.style.transition = ".3s";
+
+  if (diff >= max * 0.9) {
+    thumb.style.transform = `translateX(${max - 5}px)`;
+
+    onSlideComplete();
+  } else {
+    thumb.style.transform = `translateX(0px)`;
+  }
+});
+function oter() {
+  if (content.classList.contains("hidden")) {
+    video[0].pause();
+    console.log("wew");
+  } else {
+    video[0].play();
+    console.log("ere");
+  }
+}
+
+function onSlideComplete() {
+  baner.classList.add("hidden");
+  content.classList.remove("hidden");
+  oter();
+
+  slideWidth = slides[0].offsetWidth;
+  console.log(slideWidth);
+
+  updateText();
+  moveTo(index);
+}
+
+oter();
+
+close.addEventListener("click", () => {
+  baner.classList.remove("hidden");
+  content.classList.add("hidden");
+  oter();
+  index = 0;
+  moveTo(index)
+
+  thumb.style.transform = `translateX(0px)`;
 });
