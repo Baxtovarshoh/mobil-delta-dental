@@ -12,6 +12,8 @@ const close = document.querySelector(".close");
 const roller = document.querySelector(".spa");
 const thumb = document.querySelector(".rol");
 const end = document.querySelector(".endpoint");
+const imgs = document.querySelectorAll(".baner  img");
+console.log(imgs);
 
 const liElem = [
   {
@@ -262,7 +264,15 @@ close.addEventListener("click", () => {
   content.classList.add("hidden");
   oter();
   index = 0;
-  moveTo(index)
+  moveTo(index);
 
   thumb.style.transform = `translateX(0px)`;
+});
+
+imgs.forEach((v) => {
+  let link = document.createElement("link");
+  link.rel = "preload";
+  link.href = v.src;
+  link.as = "image";
+  document.head.appendChild(link);
 });
